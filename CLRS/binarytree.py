@@ -8,6 +8,9 @@ class BinaryTree:
     def __init__(self):
         self.head = None
 
+    def get_head(self):
+        return self.head
+
     def breadthwise_make_tree_from_list(self, lis):
         queue = []
 
