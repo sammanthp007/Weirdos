@@ -3,6 +3,7 @@ class Solution:
     # @param Y : list of integers
     # Points are represented by (X[i], Y[i])
     # @return an integer
+
     def coverPoints(self, X, Y):
         total_steps = 0
         for i in range(len(X) - 1):
@@ -40,8 +41,29 @@ class Solution:
     def within_range(self, x, y, x1, y1):
         return abs(x - x1) < 2 and abs(y - y1) < 2
 
-xs = [0,3,10]
-ys = [0,2,-28]
+xs = [0, 3, 10]
+ys = [0, 2, -28]
 a = Solution()
 s = a.coverPoints(xs, ys)
 print(s)
+
+
+class Solution:
+        # @param X : list of integers
+            # @param Y : list of integers
+                # Points are represented by (X[i], Y[i])
+                    # @return an integer
+
+    def coverPoints(self, X, Y):
+        ret = 0
+        n = len(X)
+        if n == 0:
+            return ret
+        curr = (X[0], Y[0])
+
+        for i in range(1, n):
+            stepsX = abs(curr[0] - X[i])
+            stepsY = abs(curr[1] - Y[i])
+            ret += max(stepsX, stepsY)
+            curr = (X[i], Y[i])
+        return ret
