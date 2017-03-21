@@ -1,0 +1,15 @@
+(define (reverse-general l)
+  (cond
+    ((null? l) '())
+    ((not (list? l)) (car l))
+    (else (append (reverse-general (cdr l))
+                  ((lambda(x)
+                    (if (list? x)
+                        (list (reverse-general x))
+                        (list x)
+                        )
+                     ) (car l))
+                    )))
+    )
+
+(reverse-general '(a (b d) c))
